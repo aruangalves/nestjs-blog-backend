@@ -81,8 +81,8 @@ Authorization: Bearer {{jwtToken}}
 
 {
   "title": "Título do post",
-  "excerpt": "Excerto",
-  "content": "Conteúdo"
+  "excerpt": "Excerto do post",
+  "content": "Conteúdo do post"
 }
 
 ### Read all post public
