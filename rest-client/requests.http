@@ -35,5 +35,5 @@ Authorization: Bearer {{jwtToken}}
 Content-Type: application/json
 
 {
-  "name": "usertest2"
+  "name": "usertest"
 }
