@@ -24,8 +24,8 @@ Content-Type: application/json
 
 {
   "name": "Some user",
-  "email": "someuser@email.com",
-  "password": "averysecurepassword"
+  "email": "add@mail.com",
+  "password": "123456"
 }
 
 ### Update user
@@ -48,3 +48,13 @@ Content-Type: application/json
   "currentPassword": "averysecurepassword",
   "newPassword": "123456"
 }
+
+### Read my user
+# @name readMyUser
+GET {{baseUrl}}/user/me
+Authorization: Bearer {{jwtToken}}
+
+### Delete my user
+# @name deleteMyUser
+DELETE {{baseUrl}}/user/me
+Authorization: Bearer {{jwtToken}}
