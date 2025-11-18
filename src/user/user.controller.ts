@@ -1,9 +1,18 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { CustomParseIntPipe } from 'src/common/pipes/custom-parse-int-pipe.pipe';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserService } from './user.service';
-import { AuthGuard } from '@nestjs/passport';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import type { AuthenticatedRequest } from 'src/auth/types/authenticated-request';
 
 @Controller('user')
 export class UserController {
@@ -12,11 +21,13 @@ export class UserController {
     private readonly userService: UserService,
   ) {}
 
-  @UseGuards(AuthGuard('jwt'))
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
-  findOne(@Param('id', CustomParseIntPipe) id: number) {
-    console.log(process.env.TEST || 'Default value not found');
-    console.log(this.configService.get('TEST', 'Standard value if not found'));
+  findOne(
+    @Req() req: AuthenticatedRequest,
+    @Param('id', CustomParseIntPipe) id: number,
+  ) {
+    console.log(req.user.email);
     console.log(typeof id, id);
     return '/user controller response for user ' + id;
   }
