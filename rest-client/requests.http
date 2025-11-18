@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
   "email": "add@mail.com",
-  "password": "averysecurepassword"
+  "password": "123456"
 }
 
 ### Read one user
@@ -36,4 +36,15 @@ Content-Type: application/json
 
 {
   "name": "usertest"
+}
+
+### Update user password
+# @name updateUserPassword
+PATCH {{baseUrl}}/user/me/password
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "currentPassword": "averysecurepassword",
+  "newPassword": "123456"
 }
