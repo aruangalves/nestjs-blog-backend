@@ -80,7 +80,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwtToken}}
 
 {
-  "title": "Título do post",
+  "title": "Published user2 Título do post",
   "excerpt": "Excerto do post",
   "content": "Conteúdo do post",
   "coverImageUrl": "https://localhost:3000/public/someImage.jpeg"
@@ -111,7 +111,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwtToken}}
 
 {
-  "title": "NOVO - Título do post",
+  "title": "NOVO - Título do post published user2",
   "excerpt": "NOVO - Excerto",
   "content": "NOVO - Conteúdo",
   "published": true
