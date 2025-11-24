@@ -38,6 +38,6 @@ export class Post {
   updatedAt: Date;
 
   // Many to One <- authorId (ForeignKey of User)
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { onDelete: 'CASCADE' }) //rule onDelete CASCADE to delete posts when user is removed from database
   author: User;
 }
